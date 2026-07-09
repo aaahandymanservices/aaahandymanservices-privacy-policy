@@ -10,22 +10,28 @@
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Impact&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Impact&display=swap');
         html { scroll-behavior: smooth; }
         body { font-family: 'Roboto', sans-serif; }
         .nav-link { transition: all 0.3s; }
         .nav-link:hover { color: #dc2626; transform: translateY(-2px); }
+        /* Pulse attention animation (green) — matches main site call button */
+        @keyframes pulse-attention-green {
+            0%, 100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(22, 163, 74, 0.7); }
+            50% { transform: scale(1.05); box-shadow: 0 0 0 10px rgba(22, 163, 74, 0); }
+        }
+        .pulse-btn-green { animation: pulse-attention-green 2s infinite; }
     </style>
 </head>
 <body class="bg-gray-50 text-gray-900 flex flex-col min-h-screen">
     <!-- Navbar -->
-    <nav class="bg-white shadow-md sticky top-0 z-50">
+    <nav class="bg-white shadow-md sticky top-0 z-50 border-b-[3px] border-red-600">
         <div class="max-w-7xl mx-auto px-4 py-3 sm:px-6 sm:py-4 flex justify-between items-center">
-            <div class="flex items-center space-x-3">
+            <div class="flex min-w-0 items-center space-x-3">
                 <!-- Logo -->
-                <img src="assets/icon.jpg" alt="AAA Handyman Services Icon" class="h-10 w-10 sm:h-12 sm:w-12 rounded-full object-cover border-2 border-red-600">
+                <img src="assets/icon.jpg" alt="AAA Handyman Services Icon" class="h-10 w-10 sm:h-12 sm:w-12 rounded-full object-cover flex-shrink-0">
                 <div>
-                    <a href="https://aaahandyman.services" class="text-lg sm:text-2xl md:text-3xl font-bold tracking-tight text-red-900 leading-tight hover:text-red-700 transition">AAA Handyman Services</a>
+                    <a href="https://aaahandyman.services" class="text-lg sm:text-2xl md:text-3xl font-bold tracking-tight text-red-600 leading-tight hover:text-red-700 transition">AAA Handyman Services</a>
                     <p class="text-[10px] sm:text-xs text-gray-500">Oakland County Michigan</p>
                 </div>
             </div>
@@ -36,15 +42,15 @@
                 <a href="https://aaahandyman.services/#rates" class="nav-link text-gray-700 hover:text-red-600">Rates</a>
                 <a href="https://aaahandyman.services/#travel-zones" class="nav-link text-gray-700 hover:text-red-600">Service Area</a>
                 <a href="https://aaahandyman.services/#contact" class="nav-link text-gray-700 hover:text-red-600">Contact</a>
-                <a href="https://www.facebook.com/AAAHandymanServices" target="_blank" rel="noopener" class="nav-link text-gray-700 hover:text-red-600 text-xl"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://www.facebook.com/AAAHandymanServices" target="_blank" rel="noopener" class="nav-link text-gray-700 hover:text-[#1877F2] text-xl"><i class="fab fa-facebook"></i></a>
             </div>
             <!-- Nav Action Buttons -->
             <div class="flex items-center space-x-2 sm:space-x-4">
-                <a href="tel:2483853432" class="bg-red-600 hover:bg-red-700 text-white p-3 sm:px-6 sm:py-3 rounded-full font-semibold flex items-center justify-center gap-2 transition" title="Call AAA Handyman Services">
+                <a href="tel:2483853432" class="bg-green-600 hover:bg-green-700 text-white p-3 sm:px-6 sm:py-3 rounded-full font-semibold flex items-center justify-center gap-2 transition pulse-btn-green" title="Call AAA Handyman Services">
                     <i class="fas fa-phone"></i> <span class="hidden sm:inline">‪(248) 385-3432‬</span>
                 </a>
                 <!-- Mobile Menu Button -->
-                <button id="mobile-menu-btn" class="md:hidden text-red-950 hover:text-red-600 focus:outline-none p-2 text-2xl" aria-label="Toggle Menu">
+                <button id="mobile-menu-btn" class="md:hidden text-blue-900 hover:text-red-600 focus:outline-none p-2 text-2xl" aria-label="Toggle Menu">
                     <i class="fas fa-bars" id="menu-icon"></i>
                 </button>
             </div>
@@ -56,7 +62,7 @@
             <a href="https://aaahandyman.services/#rates" class="block text-lg font-medium text-gray-700 hover:text-red-600 py-1">Rates</a>
             <a href="https://aaahandyman.services/#travel-zones" class="block text-lg font-medium text-gray-700 hover:text-red-600 py-1">Service Area</a>
             <a href="https://aaahandyman.services/#contact" class="block text-lg font-medium text-gray-700 hover:text-red-600 py-1">Contact</a>
-            <a href="https://www.facebook.com/AAAHandymanServices" target="_blank" rel="noopener" class="block text-lg font-medium text-gray-700 hover:text-red-600 py-1"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://www.facebook.com/AAAHandymanServices" target="_blank" rel="noopener" class="block text-lg font-medium text-gray-700 hover:text-[#1877F2] py-1"><i class="fab fa-facebook"></i></a>
         </div>
     </nav>
 
@@ -64,10 +70,10 @@
     <main class="flex-grow max-w-4xl mx-auto px-6 py-12 md:py-16">
         <!-- Breadcrumb / Header Subtitle -->
         <div class="text-center mb-8">
-            <span class="inline-block bg-red-50 text-red-700 border border-red-200 rounded-full px-4 py-1.5 text-sm font-semibold tracking-wide uppercase mb-3">
+            <span class="inline-block bg-blue-50 text-blue-800 border border-blue-200 rounded-full px-4 py-1.5 text-sm font-semibold tracking-wide uppercase mb-3">
                 Legal Documentation
             </span>
-            <h1 class="text-3xl md:text-5xl font-black text-red-950 tracking-tight mb-4">Privacy Policy</h1>
+            <h1 class="text-3xl md:text-5xl font-black text-blue-900 tracking-tight mb-4">Privacy Policy</h1>
             <p class="text-sm md:text-base text-gray-500 italic">Effective Date: June 26, 2026</p>
             <div class="w-24 h-1.5 bg-red-600 mx-auto mt-6 rounded-full"></div>
         </div>
@@ -88,8 +94,8 @@
         <div class="space-y-6">
             <!-- 1. Information We Collect -->
             <section class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6 md:p-8 transition hover:shadow-md">
-                <h2 class="text-xl md:text-2xl font-bold text-red-950 mb-4 flex items-center gap-3">
-                    <span class="flex items-center justify-center w-8 h-8 rounded-full bg-red-100 text-red-700 text-sm font-bold">1</span>
+                <h2 class="text-xl md:text-2xl font-bold text-blue-900 mb-4 flex items-center gap-3">
+                    <span class="flex items-center justify-center w-8 h-8 rounded-full bg-blue-100 text-blue-900 text-sm font-bold">1</span>
                     Information We Collect
                 </h2>
                 <div class="space-y-4">
@@ -132,8 +138,8 @@
 
             <!-- 2. How We Use Your Information -->
             <section class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6 md:p-8 transition hover:shadow-md">
-                <h2 class="text-xl md:text-2xl font-bold text-red-950 mb-4 flex items-center gap-3">
-                    <span class="flex items-center justify-center w-8 h-8 rounded-full bg-red-100 text-red-700 text-sm font-bold">2</span>
+                <h2 class="text-xl md:text-2xl font-bold text-blue-900 mb-4 flex items-center gap-3">
+                    <span class="flex items-center justify-center w-8 h-8 rounded-full bg-blue-100 text-blue-900 text-sm font-bold">2</span>
                     How We Use Your Information
                 </h2>
                 <ul class="space-y-3 text-gray-600">
@@ -162,8 +168,8 @@
 
             <!-- 3. Sharing Your Information -->
             <section class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6 md:p-8 transition hover:shadow-md">
-                <h2 class="text-xl md:text-2xl font-bold text-red-950 mb-4 flex items-center gap-3">
-                    <span class="flex items-center justify-center w-8 h-8 rounded-full bg-red-100 text-red-700 text-sm font-bold">3</span>
+                <h2 class="text-xl md:text-2xl font-bold text-blue-900 mb-4 flex items-center gap-3">
+                    <span class="flex items-center justify-center w-8 h-8 rounded-full bg-blue-100 text-blue-900 text-sm font-bold">3</span>
                     Sharing Your Information
                 </h2>
                 <p class="text-gray-600 leading-relaxed mb-4">
@@ -187,8 +193,8 @@
 
             <!-- 4. Cookies and Tracking -->
             <section class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6 md:p-8 transition hover:shadow-md">
-                <h2 class="text-xl md:text-2xl font-bold text-red-950 mb-4 flex items-center gap-3">
-                    <span class="flex items-center justify-center w-8 h-8 rounded-full bg-red-100 text-red-700 text-sm font-bold">4</span>
+                <h2 class="text-xl md:text-2xl font-bold text-blue-900 mb-4 flex items-center gap-3">
+                    <span class="flex items-center justify-center w-8 h-8 rounded-full bg-blue-100 text-blue-900 text-sm font-bold">4</span>
                     Cookies and Tracking
                 </h2>
                 <p class="text-gray-600 leading-relaxed">
@@ -198,11 +204,11 @@
 
             <!-- 5. Data Security -->
             <section class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6 md:p-8 transition hover:shadow-md">
-                <h2 class="text-xl md:text-2xl font-bold text-red-950 mb-4 flex items-center gap-3">
-                    <span class="flex items-center justify-center w-8 h-8 rounded-full bg-red-100 text-red-700 text-sm font-bold">5</span>
+                <h2 class="text-xl md:text-2xl font-bold text-blue-900 mb-4 flex items-center gap-3">
+                    <span class="flex items-center justify-center w-8 h-8 rounded-full bg-blue-100 text-blue-900 text-sm font-bold">5</span>
                     Data Security
                 </h2>
-                <div class="bg-amber-50 border-l-4 border-amber-500 p-4 rounded-r-xl mb-4 text-amber-900">
+                <div class="bg-red-50 border-l-4 border-red-600 p-4 rounded-r-xl mb-4 text-red-900">
                     <p class="font-semibold flex items-center gap-2 mb-1">
                         <i class="fas fa-shield-alt"></i> Security Measures
                     </p>
@@ -212,8 +218,8 @@
 
             <!-- 6. Your Rights and Choices -->
             <section class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6 md:p-8 transition hover:shadow-md">
-                <h2 class="text-xl md:text-2xl font-bold text-red-950 mb-4 flex items-center gap-3">
-                    <span class="flex items-center justify-center w-8 h-8 rounded-full bg-red-100 text-red-700 text-sm font-bold">6</span>
+                <h2 class="text-xl md:text-2xl font-bold text-blue-900 mb-4 flex items-center gap-3">
+                    <span class="flex items-center justify-center w-8 h-8 rounded-full bg-blue-100 text-blue-900 text-sm font-bold">6</span>
                     Your Rights and Choices
                 </h2>
                 <p class="text-gray-600 leading-relaxed">
@@ -223,8 +229,8 @@
 
             <!-- 7. Children's Privacy -->
             <section class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6 md:p-8 transition hover:shadow-md">
-                <h2 class="text-xl md:text-2xl font-bold text-red-950 mb-4 flex items-center gap-3">
-                    <span class="flex items-center justify-center w-8 h-8 rounded-full bg-red-100 text-red-700 text-sm font-bold">7</span>
+                <h2 class="text-xl md:text-2xl font-bold text-blue-900 mb-4 flex items-center gap-3">
+                    <span class="flex items-center justify-center w-8 h-8 rounded-full bg-blue-100 text-blue-900 text-sm font-bold">7</span>
                     Children's Privacy
                 </h2>
                 <p class="text-gray-600 leading-relaxed">
@@ -234,8 +240,8 @@
 
             <!-- 8. Changes to This Policy -->
             <section class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6 md:p-8 transition hover:shadow-md">
-                <h2 class="text-xl md:text-2xl font-bold text-red-950 mb-4 flex items-center gap-3">
-                    <span class="flex items-center justify-center w-8 h-8 rounded-full bg-red-100 text-red-700 text-sm font-bold">8</span>
+                <h2 class="text-xl md:text-2xl font-bold text-blue-900 mb-4 flex items-center gap-3">
+                    <span class="flex items-center justify-center w-8 h-8 rounded-full bg-blue-100 text-blue-900 text-sm font-bold">8</span>
                     Changes to This Policy
                 </h2>
                 <p class="text-gray-600 leading-relaxed">
@@ -244,28 +250,28 @@
             </section>
 
             <!-- Contact Us -->
-            <section class="bg-gradient-to-br from-red-900 to-red-950 rounded-2xl shadow-md p-6 md:p-8 text-white">
-                <h2 class="text-xl md:text-2xl font-bold mb-4 flex items-center gap-3 text-red-100">
-                    <i class="fas fa-envelope text-red-400"></i>
+            <section class="bg-gray-800 rounded-2xl shadow-md p-6 md:p-8 text-white">
+                <h2 class="text-xl md:text-2xl font-bold mb-4 flex items-center gap-3 text-white">
+                    <i class="fas fa-envelope text-red-500"></i>
                     Contact Us
                 </h2>
-                <p class="mb-6 text-red-200">If you have questions about this Privacy Policy, please contact us:</p>
+                <p class="mb-6 text-gray-300">If you have questions about this Privacy Policy, please contact us:</p>
 
                 <div class="grid md:grid-cols-2 gap-6">
                     <div class="space-y-3">
                         <p class="flex items-start gap-3">
-                            <i class="fas fa-map-marker-alt text-red-400 mt-1 flex-shrink-0"></i>
+                            <i class="fas fa-map-marker-alt text-red-500 mt-1 flex-shrink-0"></i>
                             <span><strong>AAA Handyman Services</strong><br>Waterford, Michigan</span>
                         </p>
                     </div>
                     <div class="space-y-3">
                         <p class="flex items-center gap-3">
-                            <i class="fas fa-envelope text-red-400 flex-shrink-0"></i>
-                            <a href="mailto:privacy@aaahandyman.services" class="hover:underline hover:text-red-300 transition">privacy@aaahandyman.services</a>
+                            <i class="fas fa-envelope text-red-500 flex-shrink-0"></i>
+                            <a href="mailto:privacy@aaahandyman.services" class="hover:underline hover:text-red-400 transition">privacy@aaahandyman.services</a>
                         </p>
                         <p class="flex items-center gap-3">
-                            <i class="fas fa-phone text-red-400 flex-shrink-0"></i>
-                            <a href="tel:2483853432" class="hover:underline hover:text-red-300 transition">‪(248) 385-3432‬</a>
+                            <i class="fas fa-phone text-red-500 flex-shrink-0"></i>
+                            <a href="tel:2483853432" class="hover:underline hover:text-red-400 transition">‪(248) 385-3432‬</a>
                         </p>
                     </div>
                 </div>
@@ -278,7 +284,7 @@
         <div class="max-w-7xl mx-auto px-6 text-center">
             <div class="flex justify-center mb-6">
                 <!-- Circular Logo -->
-                <img src="assets/logo.jpg" alt="AAA Handyman Services" class="h-16 w-16 rounded-full mx-auto object-cover border-2 border-red-600">
+                <img src="assets/logo.jpg" alt="AAA Handyman Services" class="h-20 w-20 rounded-full mx-auto object-cover shadow-lg border-2 border-red-600">
             </div>
             <p class="text-sm">&copy; 2026 AAA Handyman Services. All Rights Reserved. Michigan's $600 Handyman Law MCL 339.2403 Compliant. Locally Serving Oakland County, MI.</p>
             <div class="mt-4 flex flex-wrap justify-center gap-4 text-xs">
@@ -287,7 +293,7 @@
                 <a href="https://aaahandymanservices-terms.netlify.app/" target="_blank" rel="noopener" class="hover:text-white transition">Terms of Service</a>
             </div>
             <div class="mt-6 flex justify-center gap-6">
-                <a href="https://www.facebook.com/AAAHandymanServices" target="_blank" rel="noopener" class="text-3xl hover:text-red-500 transition"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://www.facebook.com/AAAHandymanServices" target="_blank" rel="noopener" class="text-3xl hover:text-[#1877F2] transition"><i class="fab fa-facebook"></i></a>
             </div>
         </div>
     </footer>

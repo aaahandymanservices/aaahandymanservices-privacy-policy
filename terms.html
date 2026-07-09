@@ -10,22 +10,34 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&amp;family=Poppins:wght@600;700&amp;display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&amp;family=Impact&amp;display=swap');
 
         :root {
-            --primary-red: #b91c1c;
-            --primary-blue: #1e40af;
+            --primary-red: #dc2626;
+            --primary-blue: #1e3a8a;
         }
 
+        html { scroll-behavior: smooth; }
+
         body {
-            font-family: 'Inter', system_ui, sans-serif;
+            font-family: 'Roboto', sans-serif;
         }
 
         .heading-font {
-            font-family: 'Poppins', 'Inter', system_ui, sans-serif;
+            font-family: 'Roboto', sans-serif;
             font-weight: 700;
             letter-spacing: -0.025em;
         }
+
+        .nav-link { transition: all 0.3s; }
+        .nav-link:hover { color: #dc2626; transform: translateY(-2px); }
+
+        /* Pulse attention animation (green) — matches main site call button */
+        @keyframes pulse-attention-green {
+            0%, 100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(22, 163, 74, 0.7); }
+            50% { transform: scale(1.05); box-shadow: 0 0 0 10px rgba(22, 163, 74, 0); }
+        }
+        .pulse-btn-green { animation: pulse-attention-green 2s infinite; }
 
         .nav-active {
             color: #b91c1c;
@@ -127,13 +139,13 @@
 </head>
 <body class="bg-gray-50 text-gray-900 flex flex-col min-h-screen">
     <!-- Navbar -->
-    <nav class="bg-white shadow-md sticky top-0 z-50">
+    <nav class="bg-white shadow-md sticky top-0 z-50 border-b-[3px] border-red-600">
         <div class="max-w-7xl mx-auto px-4 py-3 sm:px-6 sm:py-4 flex justify-between items-center">
             <div class="flex items-center space-x-3">
                 <!-- Logo -->
-                <img src="assets/logo.jpg" alt="AAA Handyman Services Logo" class="h-10 w-10 sm:h-12 sm:w-12 rounded-full object-cover">
+                <img src="assets/icon.jpg" alt="AAA Handyman Services Icon" class="h-10 w-10 sm:h-12 sm:w-12 rounded-full object-cover flex-shrink-0">
                 <div>
-                    <h1 class="text-lg sm:text-2xl md:text-3xl font-bold tracking-tight text-red-900 leading-tight">AAA Handyman Services</h1>
+                    <h1 class="text-lg sm:text-2xl md:text-3xl font-bold tracking-tight text-red-600 leading-tight">AAA Handyman Services</h1>
                     <p class="text-[10px] sm:text-xs text-gray-500">Oakland County Michigan</p>
                 </div>
             </div>
@@ -144,11 +156,11 @@
                 <a href="https://aaahandyman.services/#rates" class="nav-link text-gray-700 hover:text-red-600">Rates</a>
                 <a href="https://aaahandyman.services/#travel-zones" class="nav-link text-gray-700 hover:text-red-600">Service Area</a>
                 <a href="https://aaahandyman.services/#contact" class="nav-link text-gray-700 hover:text-red-600">Contact</a>
-                <a href="https://www.facebook.com/AAAHandymanServices" target="_blank" rel="noopener" class="nav-link text-gray-700 hover:text-red-600 text-xl"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://www.facebook.com/AAAHandymanServices" target="_blank" rel="noopener" class="nav-link text-gray-700 hover:text-[#1877F2] text-xl"><i class="fab fa-facebook"></i></a>
             </div>
             <!-- Nav Action Buttons -->
             <div class="flex items-center space-x-2 sm:space-x-4">
-                <a href="tel:2483853432" class="bg-red-600 hover:bg-red-700 text-white p-3 sm:px-6 sm:py-3 rounded-full font-semibold flex items-center justify-center gap-2 transition" title="Call us">
+                <a href="tel:2483853432" class="bg-green-600 hover:bg-green-700 text-white p-3 sm:px-6 sm:py-3 rounded-full font-semibold flex items-center justify-center gap-2 transition pulse-btn-green" title="Call us">
                     <i class="fas fa-phone"></i> <span class="hidden sm:inline">‪(248) 385-3432‬</span>
                 </a>
                 <!-- Mobile Menu Button -->
@@ -164,15 +176,16 @@
             <a href="https://aaahandyman.services/#rates" class="block text-lg font-medium text-gray-700 hover:text-red-600 py-1">Rates</a>
             <a href="https://aaahandyman.services/#travel-zones" class="block text-lg font-medium text-gray-700 hover:text-red-600 py-1">Service Area</a>
             <a href="https://aaahandyman.services/#contact" class="block text-lg font-medium text-gray-700 hover:text-red-600 py-1">Contact</a>
-            <a href="https://www.facebook.com/AAAHandymanServices" target="_blank" rel="noopener" class="block text-lg font-medium text-gray-700 hover:text-red-600 py-1"><i class="fab fa-facebook-f"></i> Facebook</a>
+            <a href="https://www.facebook.com/AAAHandymanServices" target="_blank" rel="noopener" class="block text-lg font-medium text-gray-700 hover:text-[#1877F2] py-1"><i class="fab fa-facebook"></i> Facebook</a>
         </div>
     </nav>
 
     <!-- Header / Title Hero-style -->
-    <header class="bg-red-900 text-white py-12 sm:py-16 text-center shadow-inner">
+    <header class="bg-gray-800 text-white py-12 sm:py-16 text-center shadow-inner">
         <div class="max-w-4xl mx-auto px-6">
             <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight mb-4">Terms of Service</h1>
-            <p class="text-red-200 text-sm sm:text-base md:text-lg italic">Effective Date: June 26, 2026</p>
+            <p class="text-gray-300 text-sm sm:text-base md:text-lg italic">Effective Date: June 26, 2026</p>
+            <div class="w-24 h-1.5 bg-red-600 mx-auto mt-6 rounded-full"></div>
         </div>
     </header>
 
@@ -181,7 +194,7 @@
         <div class="bg-white rounded-3xl shadow-md p-8 sm:p-12 border border-gray-100 space-y-10">
 
             <section class="space-y-4">
-                <h2 class="text-2xl sm:text-3xl font-bold text-red-900 border-b-2 border-red-100 pb-3 flex items-center gap-3">
+                <h2 class="text-2xl sm:text-3xl font-bold text-blue-900 border-b-2 border-blue-100 pb-3 flex items-center gap-3">
                     <span class="text-xl sm:text-2xl">📋</span> 1. Agreement to Terms
                 </h2>
                 <p class="text-gray-600 leading-relaxed text-base sm:text-lg">Welcome to <a href="https://aaahandyman.services" class="text-red-600 hover:text-red-700 font-semibold underline">aaahandyman.services</a> (the "Site"), operated by AAA Handyman Services ("we", "us", "our"). By accessing or using our website, or by engaging us for home repair, deck construction, maintenance, or other handyman services, you agree to be bound by these Terms of Service ("Terms"). If you do not agree to these Terms, please do not use our Site or services.</p>
@@ -189,7 +202,7 @@
             </section>
 
             <section class="space-y-4">
-                <h2 class="text-2xl sm:text-3xl font-bold text-red-900 border-b-2 border-red-100 pb-3 flex items-center gap-3">
+                <h2 class="text-2xl sm:text-3xl font-bold text-blue-900 border-b-2 border-blue-100 pb-3 flex items-center gap-3">
                     <span class="text-xl sm:text-2xl">🛠️</span> 2. Service Estimations and Bookings
                 </h2>
                 <p class="text-gray-600 leading-relaxed text-base sm:text-lg">We strive to provide accurate, reliable estimates for all project proposals. Please note the following regarding our services and bookings:</p>
@@ -201,28 +214,28 @@
             </section>
 
             <section class="space-y-4">
-                <h2 class="text-2xl sm:text-3xl font-bold text-red-900 border-b-2 border-red-100 pb-3 flex items-center gap-3">
+                <h2 class="text-2xl sm:text-3xl font-bold text-blue-900 border-b-2 border-blue-100 pb-3 flex items-center gap-3">
                     <span class="text-xl sm:text-2xl">💰</span> 3. Payment Terms and Rates
                 </h2>
                 <p class="text-gray-600 leading-relaxed text-base sm:text-lg">Our rates are competitive and reflective of high-quality craftsmanship. Payment terms are as follows:</p>
                 <ul class="space-y-3 text-gray-600">
                     <li class="flex items-start gap-3">
-                        <span class="bg-red-100 text-red-700 w-6 h-6 rounded-full flex items-center justify-center font-bold text-xs flex-shrink-0 mt-1">1</span>
+                        <span class="bg-blue-100 text-blue-900 w-6 h-6 rounded-full flex items-center justify-center font-bold text-xs flex-shrink-0 mt-1">1</span>
                         <span class="text-base sm:text-lg"><strong>Deposits:</strong> A deposit may be required before starting larger projects, custom builds, or deck installations.</span>
                     </li>
                     <li class="flex items-start gap-3">
-                        <span class="bg-red-100 text-red-700 w-6 h-6 rounded-full flex items-center justify-center font-bold text-xs flex-shrink-0 mt-1">2</span>
+                        <span class="bg-blue-100 text-blue-900 w-6 h-6 rounded-full flex items-center justify-center font-bold text-xs flex-shrink-0 mt-1">2</span>
                         <span class="text-base sm:text-lg"><strong>Payment Due Date:</strong> Payment in full is due immediately upon the completion of services unless prior arrangements are confirmed in writing.</span>
                     </li>
                     <li class="flex items-start gap-3">
-                        <span class="bg-red-100 text-red-700 w-6 h-6 rounded-full flex items-center justify-center font-bold text-xs flex-shrink-0 mt-1">3</span>
+                        <span class="bg-blue-100 text-blue-900 w-6 h-6 rounded-full flex items-center justify-center font-bold text-xs flex-shrink-0 mt-1">3</span>
                         <span class="text-base sm:text-lg"><strong>Accepted Forms of Payment:</strong> We accept cash, check, and major credit cards processed securely.</span>
                     </li>
                 </ul>
             </section>
 
             <section class="space-y-4">
-                <h2 class="text-2xl sm:text-3xl font-bold text-red-900 border-b-2 border-red-100 pb-3 flex items-center gap-3">
+                <h2 class="text-2xl sm:text-3xl font-bold text-blue-900 border-b-2 border-blue-100 pb-3 flex items-center gap-3">
                     <span class="text-xl sm:text-2xl">⚖️</span> 4. Workmanship and Warranties
                 </h2>
                 <p class="text-gray-600 leading-relaxed text-base sm:text-lg">We stand behind the quality of our handyman services and home repairs:</p>
@@ -234,35 +247,35 @@
             </section>
 
             <section class="space-y-4">
-                <h2 class="text-2xl sm:text-3xl font-bold text-red-900 border-b-2 border-red-100 pb-3 flex items-center gap-3">
+                <h2 class="text-2xl sm:text-3xl font-bold text-blue-900 border-b-2 border-blue-100 pb-3 flex items-center gap-3">
                     <span class="text-xl sm:text-2xl">🔒</span> 5. Limitation of Liability
                 </h2>
                 <p class="text-gray-600 leading-relaxed text-base sm:text-lg">To the maximum extent permitted by law, AAA Handyman Services and its personnel shall not be liable for any indirect, incidental, special, consequential, or punitive damages arising from the use of our Site, scheduling services, or the delivery of handyman solutions. Our total liability for any claim arising out of our work shall not exceed the total amount paid by the customer for the specific service in question.</p>
             </section>
 
             <section class="space-y-4">
-                <h2 class="text-2xl sm:text-3xl font-bold text-red-900 border-b-2 border-red-100 pb-3 flex items-center gap-3">
+                <h2 class="text-2xl sm:text-3xl font-bold text-blue-900 border-b-2 border-blue-100 pb-3 flex items-center gap-3">
                     <span class="text-xl sm:text-2xl">💻</span> 6. Use of Website
                 </h2>
                 <p class="text-gray-600 leading-relaxed text-base sm:text-lg">All content, text, designs, images, and logos on the Site are the intellectual property of AAA Handyman Services and are protected by applicable trademark and copyright laws. You may not copy, reproduce, or republish any assets from our Site without explicit prior written authorization.</p>
             </section>
 
             <section class="space-y-4">
-                <h2 class="text-2xl sm:text-3xl font-bold text-red-900 border-b-2 border-red-100 pb-3 flex items-center gap-3">
+                <h2 class="text-2xl sm:text-3xl font-bold text-blue-900 border-b-2 border-blue-100 pb-3 flex items-center gap-3">
                     <span class="text-xl sm:text-2xl">📍</span> 7. Governing Law
                 </h2>
                 <p class="text-gray-600 leading-relaxed text-base sm:text-lg">These Terms of Service are governed by and construed in accordance with the laws of the State of Michigan, without regard to its conflict of law principles. Any legal actions or proceedings arising from these Terms or our services shall be filed in the courts of Oakland County, Michigan.</p>
             </section>
 
             <section class="space-y-4">
-                <h2 class="text-2xl sm:text-3xl font-bold text-red-900 border-b-2 border-red-100 pb-3 flex items-center gap-3">
+                <h2 class="text-2xl sm:text-3xl font-bold text-blue-900 border-b-2 border-blue-100 pb-3 flex items-center gap-3">
                     <span class="text-xl sm:text-2xl">🔄</span> 8. Changes to These Terms
                 </h2>
                 <p class="text-gray-600 leading-relaxed text-base sm:text-lg">We reserve the right to revise or update these Terms of Service at any time. When we make changes, we will post the updated version on this page with the revised effective date at the top.</p>
             </section>
 
             <section class="space-y-4 bg-gray-50 p-6 sm:p-8 rounded-3xl border border-gray-100">
-                <h2 class="text-2xl font-bold text-red-900 border-b-2 border-red-200 pb-2 flex items-center gap-3">
+                <h2 class="text-2xl font-bold text-blue-900 border-b-2 border-blue-200 pb-2 flex items-center gap-3">
                     <span class="text-xl">📞</span> Contact Us
                 </h2>
                 <div class="text-gray-700 space-y-3 mt-4 text-base sm:text-lg">
@@ -277,7 +290,7 @@
     </main>
 
     <!-- Footer -->
-    <footer class="bg-gray-900 text-white py-12 border-t border-gray-800">
+    <footer class="bg-black text-gray-400 py-12 border-t border-gray-800">
         <div class="max-w-7xl mx-auto px-6 text-center space-y-4">
             <p class="text-base sm:text-lg font-semibold tracking-tight text-red-500">AAA Handyman Services</p>
             <p class="text-gray-400 text-sm">Waterford, Michigan | Proudly Serving Oakland County</p>
